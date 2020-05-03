@@ -4,7 +4,7 @@ Patrimonium.js is a JavaScript library providing a set of tools to modelize the 
 ## Install
 Install the package from NPM.
 ```
-npm i patrimonium
+npm i patrimoniumjs
 ```
 
 Patrimonium.js library is exposed under all the module definitions (UMD).
@@ -25,8 +25,8 @@ A `Person` can be used as a single individual but also as a taxable household co
 
 ### Example
 ```js
-import { SimpleDate } from 'patrimonium';
-import { Frenchman } from 'patrimonium/countries/france';
+import { SimpleDate } from 'patrimoniumjs';
+import { Frenchman } from 'patrimoniumjs/countries/france';
 
 const person = new Frenchman({
     currentAccount: 50000,
