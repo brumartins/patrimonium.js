@@ -1,5 +1,5 @@
 # Patrimonium.js
-Patrimonium.js is a JavaScript library providing a set of tools to modelize the real estate operations of an individual and their impact on the financial situation of the same individual.
+Patrimonium.js is a JavaScript library providing a set of tools to modelize the real estate operations of an individual and their impact on their financial situation.
 
 ## Install
 Install the package from NPM.
@@ -14,11 +14,11 @@ Patrimonium.js library is exposed under all the module definitions (UMD).
 ### Concepts
 A `Person` represents an individual with financial capabilities. A series of operations at specific dates can be performed on behalf of this `Person`. A financial `Reporting` composed of `BalanceSheet` and `PLStatement` (profit and loss statement) is also available month-over-month.
 
-A `Person` is considered country-agnostic, meaning that taxation is not defined by default. If needed, the tax calculation must be provided when instancing a `Person`.
-
 A `Person` can be used as a single individual but also as a taxable household composed of multiple individuals.
 
-**Country plugins** serve the purpose of providing additional classes inheriting from `Person` with built-in country-specific features like tax calculation. The following plugins are available :
+A `Person` is not attached to a particular country. It means that it is up to the developper to implement some country-specific features, like the income tax calculation.
+
+**Country plugins** serve the purpose of providing additional classes inheriting from `Person` with built-in country-specific features like income tax calculation. The following plugins are available :
 - France
     - income tax calculation for salaries (based on gross salary and employment status)
     - rental income tax calculation based on 'micro-foncier' scheme (more schemes to come)
@@ -60,8 +60,8 @@ const plStatementOneYearAndAHalfLater = history[18].plStatement;
 ```
 
 ### Limitations
-- Multi-currency is not supported.
-- Foreign income is not supported but using employment status can be a workaround for foreign salaries.
+- Multi-currency management is not supported.
+- Foreign income management is not supported.
 
 ### Documentation
 For more information about all available features, consult Typescript declaration files.
