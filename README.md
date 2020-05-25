@@ -38,6 +38,7 @@ const person = new Frenchman({
 
 const atStart = new SimpleDate({ nthMonth: 0 });
 const oneYearLater = new SimpleDate({ nthMonth: 12 });
+const oneYearAndAHalfLater = new SimpleDate({ nthMonth: 18 });
 const twoYearsLater = new SimpleDate({ nthMonth: 24 });
 
 person.buyProperty(atStart, {
@@ -55,8 +56,9 @@ person.signLoan(atStart, {
 person.sellProperty(oneYearLater);
 
 const history = person.getHistory(twoYearsLater); // getting history from the start up to two years later
-const balanceSheetOneYearAndAHalfLater = history[18].balanceSheet;
-const plStatementOneYearAndAHalfLater = history[18].plStatement;
+const reportingOneYearAHalfLater = history.getReporting(oneYearAndAHalfLater);
+const balanceSheet = reportingOneYearAHalfLater.balanceSheet;
+const plStatement = reportingOneYearAHalfLater.plStatement;
 ```
 
 ### Limitations
