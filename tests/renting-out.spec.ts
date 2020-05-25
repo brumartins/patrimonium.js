@@ -56,7 +56,7 @@ describe(`Renting out a property`, () => {
         history = person.getHistory(sixMonthsLater);
 
         // Assert
-        expect(history[6]).eqlReporting(expectedSixMonthsLater);
+        expect(history.toArray()[6]).eqlReporting(expectedSixMonthsLater);
     });
 
     it('makes you earn money but you pay taxes as well', () => {
@@ -87,7 +87,7 @@ describe(`Renting out a property`, () => {
         history = person.getHistory(sixMonthsLater);
 
         // Assert
-        expect(history[6]).eqlReporting(expectedSixMonthsLater);
+        expect(history.toArray()[6]).eqlReporting(expectedSixMonthsLater);
     });
 
 });

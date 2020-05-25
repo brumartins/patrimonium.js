@@ -23,7 +23,7 @@ describe(`Renting a property`, () => {
         expectedOneYearLater.plStatement.expenses.rent = rental.price;
         expectedOneYearLater.plStatement.expenses.realEstate.tax = rental.residenceTax / 12;
 
-        expect(history[12]).eqlReporting(expectedOneYearLater);
+        expect(history.toArray()[12]).eqlReporting(expectedOneYearLater);
     });
 
     it('is less expensive when you leave it in the meanwhile', () => {
@@ -40,7 +40,7 @@ describe(`Renting a property`, () => {
         const expectedOneYearLater = buildReporting();
         expectedOneYearLater.balanceSheet.assets.currentAccount = - (rental.price * 12 + rental.residenceTax) / 2;
 
-        expect(history[12]).eqlReporting(expectedOneYearLater);
+        expect(history.toArray()[12]).eqlReporting(expectedOneYearLater);
     });
 
 });

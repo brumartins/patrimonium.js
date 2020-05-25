@@ -22,7 +22,7 @@ describe(`Salary`, () => {
         history = person.getHistory(sixMonthsLater);
 
         // Assert
-        expect(history[6]).eqlReporting(expectedSixMonthsLater);
+        expect(history.toArray()[6]).eqlReporting(expectedSixMonthsLater);
     });
 
     it('makes you pay the income tax', () => {
@@ -47,7 +47,7 @@ describe(`Salary`, () => {
         history = person.getHistory(sixMonthsLater);
 
         // Assert
-        expect(history[6]).eqlReporting(expectedSixMonthsLater);
+        expect(history.toArray()[6]).eqlReporting(expectedSixMonthsLater);
     });
 
 });

@@ -29,7 +29,7 @@ describe(`Buying a property`, () => {
         expectedOneYearLater.balanceSheet.assets.properties = [purchase.price];
         expectedOneYearLater.plStatement.expenses.realEstate.fees = purchase.recurrentExpenses!.maintenanceFees / 12;
 
-        expect(history[12]).eqlReporting(expectedOneYearLater);
+        expect(history.toArray()[12]).eqlReporting(expectedOneYearLater);
     });
 
     it('increases your assets in a continuous way if the real estate market is growing', () => {
@@ -61,7 +61,7 @@ describe(`Buying a property`, () => {
         history = person.getHistory(oneYearLater);
 
         // Assert
-        expect(history[12]).eqlReporting(expectedOneYearLater);
+        expect(history.toArray()[12]).eqlReporting(expectedOneYearLater);
     });
 
     it('makes you pay taxes and fees', () => {
@@ -94,8 +94,8 @@ describe(`Buying a property`, () => {
         history = person.getHistory(oneYearLater);
 
         // Assert
-        expect(history[6]).eqlReporting(expectedSixMonthsLater);
-        expect(history[12]).eqlReporting(expectedOneYearLater);
+        expect(history.toArray()[6]).eqlReporting(expectedSixMonthsLater);
+        expect(history.toArray()[12]).eqlReporting(expectedOneYearLater);
     });
 
     it('and selling it later is expensive', () => {
@@ -119,7 +119,7 @@ describe(`Buying a property`, () => {
         history = person.getHistory(oneYearLater);
 
         // Assert
-        expect(history[12]).eqlReporting(expectedOneYearLater);
+        expect(history.toArray()[12]).eqlReporting(expectedOneYearLater);
     });
 
     it('and moving in makes you pay residence tax', () => {
@@ -148,7 +148,7 @@ describe(`Buying a property`, () => {
         history = person.getHistory(oneYearLater);
 
         // Assert
-        expect(history[12]).eqlReporting(expectedOneYearLater);
+        expect(history.toArray()[12]).eqlReporting(expectedOneYearLater);
     });
 
     it('and making home improvement increases the property worth', () => {
@@ -185,7 +185,7 @@ describe(`Buying a property`, () => {
         history = person.getHistory(oneYearLater);
 
         // Assert
-        expect(history[12]).eqlReporting(expectedOneYearLater);
+        expect(history.toArray()[12]).eqlReporting(expectedOneYearLater);
     });
 
 });

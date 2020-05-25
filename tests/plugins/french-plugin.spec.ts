@@ -20,6 +20,6 @@ describe(`French plugin`, () => {
         let history = person.getHistory(oneYearLater);
         history = person.getHistory(oneYearLater);
 
-        expect(history[12]).eqlReporting(expectedOneYearLater);
+        expect(history.toArray()[12]).eqlReporting(expectedOneYearLater);
     });
 });

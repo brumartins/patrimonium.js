@@ -29,7 +29,7 @@ describe(`Balance sheet`, () => {
         const expectedNetWorth = -purchase.notaryFees - (purchase.recurrentExpenses!.propertyTax + purchase.recurrentExpenses!.residenceTax) * 1.5;
 
         // Assert
-        expect(history[32].balanceSheet.netWorth).closeTo(expectedNetWorth, 1);
+        expect(history.toArray()[32].balanceSheet.netWorth).closeTo(expectedNetWorth, 1);
     });
 
     it('does not change if the person has no income, performs no action and does not invest money', function() {
@@ -45,7 +45,7 @@ describe(`Balance sheet`, () => {
         history = person.getHistory(oneYearLater);
 
         // Assert
-        expect(history[12]).eqlReporting(expectedAtStart);
+        expect(history.toArray()[12]).eqlReporting(expectedAtStart);
     }); 
 
     it('current account gets increased if the person investment rate of return is not null', function() {
@@ -67,7 +67,7 @@ describe(`Balance sheet`, () => {
         history = person.getHistory(oneYearLater);
 
         // Assert
-        expect(history[12]).eqlReporting(expectedOneYearLater);
+        expect(history.getReporting(oneYearLater)).eqlReporting(expectedOneYearLater);
     });
 
     it('current account gets decreased if the person has monthly expenses', function() {
@@ -86,7 +86,7 @@ describe(`Balance sheet`, () => {
         history = person.getHistory(oneYearLater);
 
         // Assert
-        expect(history[12]).eqlReporting(expectedOneYearLater);
+        expect(history.getReporting(oneYearLater)).eqlReporting(expectedOneYearLater);
     });
 
 });

@@ -61,7 +61,7 @@ describe(`Signing a loan`, () => {
         history = person.getHistory(oneYearLater);
 
         // Assert
-        expect(history[12]).eqlReporting(expectedOneYearLater);
+        expect(history.toArray()[12]).eqlReporting(expectedOneYearLater);
     });
 
     it('makes you do monthly payments only during the loan period', () => {
@@ -89,9 +89,9 @@ describe(`Signing a loan`, () => {
         history = person.getHistory(twentyYearsAndTwoMonthsLater);
 
         // Assert
-        expect(history[239]).eqlReporting(expectedOneMonthBeforeLoanEnd);
-        expect(history[240]).eqlReporting(expectedAtLoanEnd);
-        expect(history[241]).eqlReporting(expectedAfterLoanEnd);
+        expect(history.toArray()[239]).eqlReporting(expectedOneMonthBeforeLoanEnd);
+        expect(history.toArray()[240]).eqlReporting(expectedAtLoanEnd);
+        expect(history.toArray()[241]).eqlReporting(expectedAfterLoanEnd);
     });
 
     it('a person already has a loan at the beginning', () => {
@@ -118,8 +118,8 @@ describe(`Signing a loan`, () => {
         history = person.getHistory(oneYearLater);
 
         // Assert
-        expect(history[0]).eqlReporting(expectedatStart);
-        expect(history[12]).eqlReporting(expectedOneYearLater);
+        expect(history.toArray()[0]).eqlReporting(expectedatStart);
+        expect(history.toArray()[12]).eqlReporting(expectedOneYearLater);
     });
 
 });
