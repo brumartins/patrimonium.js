@@ -1,6 +1,6 @@
 {
   "name": "patrimoniumjs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Patrimonium.js is a JavaScript library providing a set of tools to modelize the real estate operations of an individual and their impact on the financial situation of the same individual.",
   "main": "index.js",
   "scripts": {
