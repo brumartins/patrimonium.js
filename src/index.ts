@@ -11,11 +11,13 @@ import { PropertySale } from './property-sale';
 import { PropertyMove } from './property-move';
 import { PropertyRentOut } from './property-rent-out';
 import { Employment, GrossSalary } from './employment';
-import { BalanceSheet, PLStatement, Reporting } from './reporting';
+import { BalanceSheet, PLStatement, Reporting, History } from './reporting';
+import { PersonSituation } from './person-situation';
 
 export {
     Person,
     PersonInitialSituation,
+    PersonSituation,
     EnvironmentOptions,
     Loan,
     LoanOptions,
@@ -27,6 +29,7 @@ export {
     BalanceSheet,
     PLStatement,
     Reporting,
+    History,
     PropertyImprovement,
     PropertySale,
     PropertyMove,

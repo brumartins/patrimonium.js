@@ -2,12 +2,11 @@ import {
     PersonAction, BuyPropertyAction, SignLoanAction, SellPropertyAction, RentPropertyAction, LeaveRentalPropertyAction,
     MoveInAction, MakePropertyImprovementAction, RentOutPropertyAction
 } from "./actions";
-import { PersonSituation } from "./person-situation";
 import {
     Property, PropertyImprovement, PropertySale, PropertyMove, PropertyRentOut, PropertyPurchase, Loan,
-    LoanOptions, Rental, PersonInitialSituation, SimpleDate, BalanceSheet, Employment, GrossSalary, Reporting
+    LoanOptions, Rental, PersonInitialSituation, SimpleDate, BalanceSheet, Employment, GrossSalary, Reporting,
+    PersonSituation, PLStatement, History
 } from ".";
-import { PLStatement } from "./reporting/pl-statement";
 
 /**
  * Represents a person.
@@ -29,17 +28,17 @@ export class Person {
     }
 
     /**
-     * Returns an array of month-over-month financial reports starting from the origin up to a specific date.
-     * The index of the array reflects the nth month from the origin.
-     * @param dateUntil Only returns reports until this date.
+     * Returns the financial reporting history of a `Person` up to a specific date.
+     * @param dateUntil Returns only reports until this date.
      * @example
      * const person = new Person();
-     * const oneYearLater: SimpleDate = new SimpleDate({ nthMonth: 12 });
-     * const history: Reporting[] = person.getHistory(oneYearLater);
-     * const balanceSheetOneYearLater: BalanceSheet = history[12].balanceSheet;
-     * const plStatementSixMonthsLater: PLStatement = history[6].plStatement;
+     * const sixMonthsLater = new SimpleDate({ nthMonth: 6 });
+     * const oneYearLater = new SimpleDate({ nthMonth: 12 });
+     * const history = person.getHistory(oneYearLater);
+     * const balanceSheetOneYearLater = history.getReporting(oneYearLater).balanceSheet;
+     * const plStatementSixMonthsLater = history.getReporting(sixMonthsLater).plStatement;
      */
-    getHistory(dateUntil: SimpleDate): Reporting[] {
+    getHistory(dateUntil: SimpleDate): History {
         const reports: Reporting[] = [];
         const situation = _cloneSituation(this._initialSituation);
 
@@ -72,7 +71,7 @@ export class Person {
             });
         });
 
-        return reports;
+        return new History(reports);
     }
 
     /**
